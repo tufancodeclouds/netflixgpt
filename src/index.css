@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --netflixRed: #e50914;
+  --skeleton-bg: #1f1f1f;
+  --skeleton-highlight: #2a2a2a;
+}
+
+body {
+  height: 100%;
+  background-color: #000;
+  font-family: "Inter", sans-serif;
+}
+
+.netflix-red {
+  color: var(--netflixRed);
+}
+
+.netflix-ring {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.netflix-ring::before,
+.netflix-ring::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 4px solid transparent;
+}
+
+.netflix-ring::before {
+  border-top-color: var(--netflixRed);
+  animation: netflix-spin 1s linear infinite;
+}
+
+.netflix-ring::after {
+  border-bottom-color: var(--netflixRed);
+  animation: netflix-spin 1.5s linear infinite reverse;
+}
+
+@keyframes netflix-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+[data-theme="light"] {
+  --skeleton-bg: #e5e7eb;
+  --skeleton-highlight: #f3f4f6;
+}
+
+.skeleton-card {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--skeleton-bg);
+}
+
+.skeleton-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--skeleton-highlight),
+    transparent
+  );
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
