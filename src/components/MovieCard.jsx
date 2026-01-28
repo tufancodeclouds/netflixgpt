@@ -21,7 +21,6 @@ const MovieCard = ({ movie, index }) => {
         transition-all duration-300
         shadow-lg shadow-black/20
         group-hover:shadow-2xl group-hover:shadow-black/60
-        group-hover:-translate-y-2
         z-0 group-hover:z-10"
       >
         <img
